@@ -1,0 +1,12 @@
+{
+  "name": "veerabhadrapracharasamithi",
+  "displayName": "veerabhadrapracharasamithi",
+  "expo": {
+    "name": "veerabhadrapracharasamithi",
+    "slug": "veerabhadrapracharasamithi",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
