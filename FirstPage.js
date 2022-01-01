@@ -44,93 +44,91 @@ const actions = [
   // },
 ];
 
-class TypingText extends Component<{}> {
-
-}
+class TypingText extends Component<{}> {}
 
 const DATA = [
   {
-    id: "0",
+    id: '0',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ',
   },
   {
-    id: "1",
+    id: '1',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಕವಚಂ',
   },
   {
-    id: "2",
+    id: '2',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ದಂಡಕಂ',
   },
   {
-    id: "3",
+    id: '3',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ತಾರಾವಳಿ',
   },
   {
-    id: "4",
+    id: '4',
     title: 'ಶ್ರೀ ವೀರಭದ್ರಾಷ್ಟಕಂ',
   },
   {
-    id: "5",
+    id: '5',
     title: 'ಶ್ರೀ ಭದ್ರ ಕವಚಂ',
   },
   {
-    id: "6",
+    id: '6',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮಸ್ತೋತ್ರ',
   },
   {
-    id: "7",
+    id: '7',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ',
   },
   {
-    id: "8",
+    id: '8',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರ',
   },
   {
-    id: "9",
+    id: '9',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ',
   },
   {
-    id: "10",
+    id: '10',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ವಡಪುಗಳು',
   },
   {
-    id: "11",
+    id: '11',
     title: 'ಗುಗ್ಗುಳದ ಬಗ್ಗೆ ಮಾಹಿತಿ',
   },
   {
-    id: "12",
+    id: '12',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ',
   },
   {
-    id: "13",
+    id: '13',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಆಚರಣೆಗಳು',
   },
   {
-    id: "14",
+    id: '14',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಾರ್ಥನೆ',
   },
   {
-    id: "15",
+    id: '15',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ ಶ್ಲೋಕ',
   },
   {
-    id: "16",
+    id: '16',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ',
   },
   {
-    id: "17",
+    id: '17',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ',
   },
   {
-    id: "18",
+    id: '18',
     title: 'ದ್ವಾತ್ರಿಂಶದ್ಭುಜ ಶ್ರೀ ವೀರಭದ್ರ ಧ್ಯಾನಂ',
   },
   {
-    id: "19",
+    id: '19',
     title: 'ಶ್ರೀ ಶರಭ ಹೃದಯ ಸ್ತೋತ್ರ',
   },
   {
-    id: "20",
+    id: '20',
     title: 'ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು',
   },
 ];
@@ -231,10 +229,10 @@ export default class FirstPage extends Component<{}> {
   static navigationOptions = {
     // header: null,
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು',
-    headerTintColor: "#FFDF00",
+    headerTintColor: '#FFDF00',
     headerStyle: {
-      backgroundColor: '#2F95D6',
-      borderBottomColor: '#ffffff',
+      backgroundColor: '#ff8000',
+      borderBottomColor: '#2F95D6',
       borderBottomWidth: 3,
     },
     headerTitleStyle: {
@@ -253,9 +251,23 @@ export default class FirstPage extends Component<{}> {
         <View style={styles.SplashScreen_ChildView}>
           <ImageBackground
             source={require('./images/veerabhadra_splash.jpg')}
-            style={{width: '100%', height: '100%'}}></ImageBackground>
+            style={styles.splashContent}>
+            <View style={styles.bottombanner}>
+              {/* <View> */}
+              <Animated.View style={[{opacity: this.state.startValue}]}>
+                <ImageBackground
+                  style={styles.theImage}
+                  source={require('./games/poster_bg_new.jpg')}>
+                  <Text style={styles.topHeadingInvite}>
+                    ಶ್ರೀ ವೀರಭದ್ರಸ್ವಾಮಿ ಮಂತ್ರಗಳು
+                  </Text>
+                </ImageBackground>
+                {/* </View> */}
+              </Animated.View>
+               {/* <ConfettiCannon count={200} origin={{x: -10, y: 0}} /> */}
+            </View>
+          </ImageBackground>
         </View>
-        <ConfettiCannon count={200} origin={{x: -10, y: 0}} />
       </View>
     );
     return (
@@ -313,13 +325,44 @@ const styles = StyleSheet.create({
     marginTop: 40,
     backgroundColor: '#fe724c',
   },
+  bottombanner: {
+    height: 40,
+    width: '100%',
+    position: 'absolute',
+    bottom: 1,
+  },
+  topHeadingInvite: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 8,
+    color: '#FFD700',
+    fontFamily: 'BalooTamma2-Regular',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  splashContent: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    // alignItems: 'flex-end',
+    // alignSelf: 'flex-end',
+  },
+  theImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    textAlign: 'center',
+  },
   item: {
     backgroundColor: '#ff8000',
-    padding: 15,
+    padding: 12,
     marginVertical: 8,
-    fontSize : 20,
+    fontSize: 28,
     marginHorizontal: 16,
-    color: '#ff0000',
+    color: "#ffffff",
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -338,9 +381,9 @@ const styles = StyleSheet.create({
     height: 50,
   },
   title: {
-    fontSize: 24,
-    color: '#272d2f',
-    backgroundColor: '#ffffff',
+    fontSize: 32,
+    color: '#ffffff',
+    backgroundColor: '#272d2f',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -348,12 +391,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     fontWeight: 'bold',
+    color: "#ffffff",
   },
 
   SplashScreen_RootView: {
-    justifyContent: 'center',
-    flex: 1,
-    position: 'absolute',
+    // justifyContent: 'center',
     width: '100%',
     height: '100%',
   },
@@ -375,8 +417,6 @@ const styles = StyleSheet.create({
   },
 
   SplashScreen_ChildView: {
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#bb1471',
     flex: 1,
   },
