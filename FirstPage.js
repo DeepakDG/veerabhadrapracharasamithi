@@ -25,14 +25,14 @@ import Ticket from './Ticket';
 let {width, height} = Dimensions.get('window');
 const actions = [
   {
-    text: 'Best Compliments',
-    icon: require('./images/info_icon.png'),
+    text: 'ದೇವಾಲಯಗಳು',
+    icon: require('./images/temples.png'),
     name: 'btn_familyInfo',
     position: 1,
   },
   {
-    text: 'Timings & Venue',
-    icon: require('./images/location_icon.png'),
+    text: 'ಅಧಿಸೂಚನೆಗಳು',
+    icon: require('./images/bell.png'),
     name: 'btn_location',
     position: 3,
   },
@@ -229,8 +229,9 @@ export default class FirstPage extends Component<{}> {
   };
 
   static navigationOptions = {
-    header: null,
-    headerTintColor: '#ffffff',
+    // header: null,
+    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು',
+    headerTintColor: "#FFDF00",
     headerStyle: {
       backgroundColor: '#2F95D6',
       borderBottomColor: '#ffffff',
@@ -313,9 +314,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fe724c',
   },
   item: {
-    backgroundColor: '#ffff00',
+    backgroundColor: '#ff8000',
     padding: 15,
     marginVertical: 8,
+    fontSize : 20,
     marginHorizontal: 16,
     color: '#ff0000',
     flexDirection: 'row',
@@ -336,7 +338,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     color: '#272d2f',
     backgroundColor: '#ffffff',
     padding: 20,
