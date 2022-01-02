@@ -286,6 +286,16 @@ export default class FirstPage extends Component<{}> {
     );
     return (
       <View style={styles.MainContainer}>
+        <View
+          style={{
+            alignSelf: 'flex-start',
+            padding:4,
+            backgroundColor: '#ff8000',
+            width: '100%',
+            height: 40,
+          }}>
+          <Text style={styles.title}>ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು</Text>
+        </View>
         <View style={styles.buttonstyle}>
           <MenuProvider>
             <Menu>
@@ -418,23 +428,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     // top: Constants.statusBarHeight,
     zIndex: 10,
-    backgroundColor: '#ccc',
+    backgroundColor: '#00000000',
     elevation: 10,
     width: '40%',
     height: 120,
   },
   title: {
-    fontSize: 32,
+    fontSize: 18,
     color: '#ffffff',
-    backgroundColor: '#272d2f',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     fontWeight: 'bold',
-    color: '#ffffff',
   },
 
   SplashScreen_RootView: {
