@@ -351,11 +351,10 @@ export default class FirstPage extends Component<{}> {
 
 const styles = StyleSheet.create({
   MainContainer: {
-    position: 'absolute',
+    flex: 1,
+    zIndex: 10,
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
     paddingTop: Platform.OS === 'ios' ? 20 : 0,
   },
   container: {
@@ -412,11 +411,17 @@ const styles = StyleSheet.create({
     height: 150,
   },
   buttonstyle: {
+    // position: 'absolute',
     alignSelf: 'flex-end',
     right: 5,
     top: 5,
-    width: '10%',
-    height: 50,
+    position: 'absolute',
+    // top: Constants.statusBarHeight,
+    zIndex: 10,
+    backgroundColor: '#ccc',
+    elevation: 10,
+    width: '40%',
+    height: 120,
   },
   title: {
     fontSize: 32,
