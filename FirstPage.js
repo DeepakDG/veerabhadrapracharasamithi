@@ -289,7 +289,7 @@ export default class FirstPage extends Component<{}> {
         <View
           style={{
             alignSelf: 'flex-start',
-            padding:4,
+            padding: 4,
             backgroundColor: '#ff8000',
             width: '100%',
             height: 40,
@@ -299,7 +299,9 @@ export default class FirstPage extends Component<{}> {
         <View style={styles.buttonstyle}>
           <MenuProvider>
             <Menu>
-              <MenuTrigger text="Select action" />
+              <MenuTrigger style={styles.menutriggerstyle}>
+                <Image source={require('./images/more.png')}></Image>
+              </MenuTrigger>
               <MenuOptions>
                 <MenuOption onSelect={() => alert(`Save`)} text="Save" />
                 <MenuOption onSelect={() => alert(`Delete`)}>
@@ -420,10 +422,14 @@ const styles = StyleSheet.create({
     width: '10%',
     height: 150,
   },
+  menutriggerstyle: {
+    // marginLeft: 90,
+     alignSelf: 'flex-end',
+  },
   buttonstyle: {
     // position: 'absolute',
     alignSelf: 'flex-end',
-    right: 5,
+    // right: 5,
     top: 5,
     position: 'absolute',
     // top: Constants.statusBarHeight,
