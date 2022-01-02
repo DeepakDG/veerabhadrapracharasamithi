@@ -22,6 +22,20 @@ import PropTypes from 'prop-types';
 import {FloatingAction} from 'react-native-floating-action';
 import Printer from './Printer';
 import Ticket from './Ticket';
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+  MenuProvider,
+} from 'react-native-popup-menu';
+
+// export const App = () => (
+//   <MenuProvider>
+//     <FirstPage />
+//   </MenuProvider>
+// );
+
 let {width, height} = Dimensions.get('window');
 const actions = [
   {
@@ -227,8 +241,8 @@ export default class FirstPage extends Component<{}> {
   };
 
   static navigationOptions = {
-    // header: null,
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು',
+    header: null,
+    // title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು',
     headerTintColor: '#FFDF00',
     headerStyle: {
       backgroundColor: '#ff8000',
@@ -264,7 +278,7 @@ export default class FirstPage extends Component<{}> {
                 </ImageBackground>
                 {/* </View> */}
               </Animated.View>
-               {/* <ConfettiCannon count={200} origin={{x: -10, y: 0}} /> */}
+              {/* <ConfettiCannon count={200} origin={{x: -10, y: 0}} /> */}
             </View>
           </ImageBackground>
         </View>
@@ -272,11 +286,35 @@ export default class FirstPage extends Component<{}> {
     );
     return (
       <View style={styles.MainContainer}>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
+        <View style={styles.buttonstyle}>
+          <MenuProvider>
+            <Menu>
+              <MenuTrigger text="Select action" />
+              <MenuOptions>
+                <MenuOption onSelect={() => alert(`Save`)} text="Save" />
+                <MenuOption onSelect={() => alert(`Delete`)}>
+                  <Text style={{color: 'red'}}>Delete</Text>
+                </MenuOption>
+                <MenuOption onSelect={() => alert(`Save`)} text="Save" />
+                <MenuOption onSelect={() => alert(`Delete`)}>
+                  <Text style={{color: 'red'}}>Delete</Text>
+                </MenuOption>
+                <MenuOption
+                  onSelect={() => alert(`Not called`)}
+                  disabled={true}
+                  text="Disabled"
+                />
+              </MenuOptions>
+            </Menu>
+          </MenuProvider>
+        </View>
+        <View>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
+        </View>
         <FloatingAction
           actions={actions}
           onPressItem={name => {
@@ -362,7 +400,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     fontSize: 28,
     marginHorizontal: 16,
-    color: "#ffffff",
+    color: '#ffffff',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -391,7 +429,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     fontWeight: 'bold',
-    color: "#ffffff",
+    color: '#ffffff',
   },
 
   SplashScreen_RootView: {
