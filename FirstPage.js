@@ -303,13 +303,17 @@ export default class FirstPage extends Component<{}> {
                 <Image source={require('./images/more.png')}></Image>
               </MenuTrigger>
               <MenuOptions>
-                <MenuOption onSelect={() => alert(`Save`)} text="Save" />
-                <MenuOption onSelect={() => alert(`Delete`)}>
-                  <Text style={{color: 'red'}}>Delete</Text>
+                <MenuOption onSelect={() => alert(`Rating`)}>
+                  <Text style={{color: '#ff8000'}}>Rating</Text>
                 </MenuOption>
-                <MenuOption onSelect={() => alert(`Save`)} text="Save" />
-                <MenuOption onSelect={() => alert(`Delete`)}>
-                  <Text style={{color: 'red'}}>Delete</Text>
+                <MenuOption onSelect={() => alert(`Share`)}>
+                  <Text style={{color: '#ff8000'}}>Share</Text>
+                </MenuOption>
+                <MenuOption onSelect={() => alert(`Contact`)}>
+                  <Text style={{color: '#ff8000'}}>Contact</Text>
+                </MenuOption>
+                <MenuOption onSelect={() => alert(`About App`)}>
+                  <Text style={{color: '#ff8000'}}>About App</Text>
                 </MenuOption>
                 <MenuOption
                   onSelect={() => alert(`Not called`)}
@@ -424,7 +428,7 @@ const styles = StyleSheet.create({
   },
   menutriggerstyle: {
     // marginLeft: 90,
-     alignSelf: 'flex-end',
+    alignSelf: 'flex-end',
   },
   buttonstyle: {
     // position: 'absolute',
