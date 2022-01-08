@@ -21,6 +21,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-global-font": "^1.0.3",
     "react-native-material-menu": "^2.0.0",
+    "react-native-pager-view": "^5.4.9",
     "react-native-popup-menu": "^0.15.12",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-triangle": "0.0.9",

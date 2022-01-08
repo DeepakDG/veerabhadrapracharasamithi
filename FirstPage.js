@@ -149,8 +149,9 @@ const DATA = [
 
 const Item = ({title}) => {
   return (
+        //item text style
     <View style={styles.item}>
-      <Text>{title}</Text>
+      <Text style={{color: '#ffffff'}}>{title}</Text>
     </View>
   );
 };
@@ -315,21 +316,18 @@ export default class FirstPage extends Component<{}> {
                 <MenuOption onSelect={() => alert(`About App`)}>
                   <Text style={{color: '#ff8000'}}>About App</Text>
                 </MenuOption>
-                <MenuOption
-                  onSelect={() => alert(`Not called`)}
-                  disabled={true}
-                  text="Disabled"
-                />
               </MenuOptions>
             </Menu>
           </MenuProvider>
         </View>
         <View>
+        <TouchableOpacity onPress={()=>navigate('FamilyInfo')}>
           <FlatList
             data={DATA}
             renderItem={renderItem}
             keyExtractor={item => item.id}
           />
+          </TouchableOpacity>
         </View>
         <FloatingAction
           actions={actions}
@@ -409,12 +407,13 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     textAlign: 'center',
   },
+  //list item background styling like bgm
   item: {
     backgroundColor: '#ff8000',
     padding: 12,
     marginVertical: 8,
     fontSize: 28,
-    marginHorizontal: 16,
+    marginHorizontal: 12,
     color: '#ffffff',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -444,7 +443,7 @@ const styles = StyleSheet.create({
     height: 120,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     color: '#ffffff',
     fontWeight: 'bold',
   },
