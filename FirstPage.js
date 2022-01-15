@@ -30,12 +30,6 @@ import {
   MenuProvider,
 } from 'react-native-popup-menu';
 
-// export const App = () => (
-//   <MenuProvider>
-//     <FirstPage />
-//   </MenuProvider>
-// );
-
 let {width, height} = Dimensions.get('window');
 const actions = [
   {
@@ -60,7 +54,105 @@ const actions = [
 
 class TypingText extends Component<{}> {}
 
-const DATA = [
+// const DATA = [
+//   {
+//     id: '0',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ',
+//   },
+//   {
+//     id: '1',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಕವಚಂ',
+//   },
+//   {
+//     id: '2',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ದಂಡಕಂ',
+//   },
+//   {
+//     id: '3',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ತಾರಾವಳಿ',
+//   },
+//   {
+//     id: '4',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರಾಷ್ಟಕಂ',
+//   },
+//   {
+//     id: '5',
+//     title: 'ಶ್ರೀ ಭದ್ರ ಕವಚಂ',
+//   },
+//   {
+//     id: '6',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮಸ್ತೋತ್ರ',
+//   },
+//   {
+//     id: '7',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ',
+//   },
+//   {
+//     id: '8',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರ',
+//   },
+//   {
+//     id: '9',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ',
+//   },
+//   {
+//     id: '10',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ವಡಪುಗಳು',
+//   },
+//   {
+//     id: '11',
+//     title: 'ಗುಗ್ಗುಳದ ಬಗ್ಗೆ ಮಾಹಿತಿ',
+//   },
+//   {
+//     id: '12',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ',
+//   },
+//   {
+//     id: '13',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಆಚರಣೆಗಳು',
+//   },
+//   {
+//     id: '14',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಾರ್ಥನೆ',
+//   },
+//   {
+//     id: '15',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ ಶ್ಲೋಕ',
+//   },
+//   {
+//     id: '16',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ',
+//   },
+//   {
+//     id: '17',
+//     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ',
+//   },
+//   {
+//     id: '18',
+//     title: 'ದ್ವಾತ್ರಿಂಶದ್ಭುಜ ಶ್ರೀ ವೀರಭದ್ರ ಧ್ಯಾನಂ',
+//   },
+//   {
+//     id: '19',
+//     title: 'ಶ್ರೀ ಶರಭ ಹೃದಯ ಸ್ತೋತ್ರ',
+//   },
+//   {
+//     id: '20',
+//     title: 'ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು',
+//   },
+// ];
+
+// const Item = ({title}) => {
+//   return (
+//     //item text style
+//     <View style={styles.item}>
+//       <Text style={{color: '#ffffff'}}>{title}</Text>
+//     </View>
+//   );
+// };
+
+// const renderItem = ({item}) => <Item title={item.title} />;
+
+const FlatListItems = [
   {
     id: '0',
     title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ',
@@ -145,18 +237,8 @@ const DATA = [
     id: '20',
     title: 'ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು',
   },
+  // refreshing: false,
 ];
-
-const Item = ({title}) => {
-  return (
-        //item text style
-    <View style={styles.item}>
-      <Text style={{color: '#ffffff'}}>{title}</Text>
-    </View>
-  );
-};
-
-const renderItem = ({item}) => <Item title={item.title} />;
 
 export default class FirstPage extends Component<{}> {
   constructor() {
@@ -169,11 +251,72 @@ export default class FirstPage extends Component<{}> {
       endValue: 1,
       duration: 10000,
       backClickCount: 0,
-
-      // AsyncStorage.setItem('languageSelected', 'en');
-      // languageSelected :"en",
+      //  FlatListItems: [
+      //   {key: 'China', population: '1,433,783,686'},
+      //   {key: 'India', population: '1,366,417,754'},
+      //   {key: 'Indonesia', population: '270,625,568'},
+      //   {key: 'Pakistan', population: '216,565,318'},
+      //   {key: 'Bangladesh', population: '163,046,161'},
+      //   {key: 'Japan', population: '126,860,301'},
+      //   {key: 'Philippines', population: '108,116,615'},
+      //   {key: 'Vietnam', population: '96,462,106'},
+      //   {key: 'Turkey', population: '83,429,615'},
+      //   {key: 'Iran', population: '82,913,906'},
+      //   {key: 'Thailand', population: '69,625,582'},
+      //   {key: 'Myanmar', population: '54,045,420'},
+      //   {key: 'South Korea', population: '51,225,308'},
+      //   {key: 'Iraq', population: '39,309,783'},
+      //   {key: 'Afghanistan', population: '38,041,754'},
+      // ],
+      // refreshing: false,
     };
   }
+
+  FlatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 4,
+          width: '100%',
+          backgroundColor: '#ffffff',
+        }}
+      />
+    );
+  };
+
+  // onRefresh = async () => {
+  //   this.setState({
+  //     refreshing: true,
+  //   });
+
+  //   this.setState({
+  //     refreshing: false,
+  //   });
+  // };
+
+  GetFlatListItem = item => {
+    Alert.alert(item.id, item.title);
+  };
+
+  render_FlatList_footer = () => {
+    var footer_View = (
+      <View style={styles.header_footer_style}>
+        <Text style={styles.textStyle}> Footer </Text>
+      </View>
+    );
+
+    return footer_View;
+  };
+
+  render_FlatList_header = () => {
+    var header_View = (
+      <View style={styles.header_footer_style}>
+        <Text style={styles.textStyle}> Header </Text>
+      </View>
+    );
+
+    return header_View;
+  };
 
   renderSeparator = () => {
     return (
@@ -321,13 +464,24 @@ export default class FirstPage extends Component<{}> {
           </MenuProvider>
         </View>
         <View>
-        <TouchableOpacity onPress={()=>navigate('FamilyInfo')}>
           <FlatList
-            data={DATA}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
+            data={FlatListItems}
+            // data={this.state.FlatListItems}
+            ItemSeparatorComponent={this.FlatListItemSeparator}
+            // onRefresh={this.onRefresh}
+            // refreshing={refreshing}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                key={item.id}
+                style={styles.item}
+                onPress={() => this.GetFlatListItem(item)}>
+                <Text style={styles.key}>{item.id}</Text>
+                <Text style={styles.population}>{item.title}</Text>
+              </TouchableOpacity>
+            )}
+            ListHeaderComponent={this.render_FlatList_header}
+            ListFooterComponent={this.render_FlatList_footer}
           />
-          </TouchableOpacity>
         </View>
         <FloatingAction
           actions={actions}
@@ -510,6 +664,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Courgette.Regular',
     color: '#ffffff',
+  },
+  key: {
+    fontSize: 10,
+    color: 'blue',
+  },
+  population: {
+    color: 'red',
+    fontSize: 18,
+  },
+
+  header_footer_style: {
+    width: '100%',
+    height: 44,
+    backgroundColor: '#4CAF50',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  textStyle: {
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 21,
   },
 });
 
