@@ -430,7 +430,7 @@ export default class FirstPage extends Component<{}> {
     );
     return (
       <View style={styles.MainContainer}>
-        <View
+        {/* <View
           style={{
             alignSelf: 'flex-start',
             padding: 4,
@@ -439,8 +439,8 @@ export default class FirstPage extends Component<{}> {
             height: 40,
           }}>
           <Text style={styles.title}>ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು</Text>
-        </View>
-        <View style={styles.buttonstyle}>
+        </View> */}
+        {/* <View style={styles.buttonstyle}>
           <MenuProvider>
             <Menu>
               <MenuTrigger style={styles.menutriggerstyle}>
@@ -462,8 +462,8 @@ export default class FirstPage extends Component<{}> {
               </MenuOptions>
             </Menu>
           </MenuProvider>
-        </View>
-        <View>
+        </View> */}
+        {/* <View> */}
           <FlatList
             data={FlatListItems}
             // data={this.state.FlatListItems}
@@ -482,7 +482,7 @@ export default class FirstPage extends Component<{}> {
             ListHeaderComponent={this.render_FlatList_header}
             ListFooterComponent={this.render_FlatList_footer}
           />
-        </View>
+        {/* </View> */}
         <FloatingAction
           actions={actions}
           onPressItem={name => {
@@ -519,10 +519,11 @@ export default class FirstPage extends Component<{}> {
 
 const styles = StyleSheet.create({
   MainContainer: {
-    flex: 1,
-    zIndex: 10,
+    position: 'absolute',
     top: 0,
     left: 0,
+    width: '100%',
+    height: '100%',
     paddingTop: Platform.OS === 'ios' ? 20 : 0,
   },
   container: {
