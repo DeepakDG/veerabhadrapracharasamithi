@@ -176,7 +176,7 @@ export default class FirstPage extends Component<{}> {
   render_FlatList_footer = () => {
     var footer_View = (
       <View style={styles.header_footer_style}>
-        <Text style={styles.textStyle}> Footer </Text>
+        {/* <Text style={styles.textStyle}> Footer </Text> */}
       </View>
     );
 
@@ -491,8 +491,7 @@ const styles = StyleSheet.create({
 
   SplashScreen_RootView: {
     // justifyContent: 'center',
-    width: '100%',
-    height: '100%',
+    flex:1,
   },
 
   fontFamilyDeepak: {
@@ -512,7 +511,7 @@ const styles = StyleSheet.create({
   },
 
   SplashScreen_ChildView: {
-    backgroundColor: '#bb1471',
+    backgroundColor: '#ff8000',
     flex: 1,
   },
   image: {
@@ -564,7 +563,7 @@ const styles = StyleSheet.create({
   header_footer_style: {
     width: '100%',
     height: 44,
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#ff8000',
     alignItems: 'center',
     justifyContent: 'center',
   },
