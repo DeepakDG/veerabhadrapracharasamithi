@@ -491,7 +491,10 @@ const styles = StyleSheet.create({
 
   SplashScreen_RootView: {
     // justifyContent: 'center',
-    flex:1,
+    width: '100%',
+    height: '100%',
+     flex: 1,
+    position: 'absolute',
   },
 
   fontFamilyDeepak: {
@@ -513,6 +516,14 @@ const styles = StyleSheet.create({
   SplashScreen_ChildView: {
     backgroundColor: '#ff8000',
     flex: 1,
+    // flexDirection: 'row',
+    // flexWrap: 'wrap',
+    // alignItems: 'flex-start',
+    // resizeMode: 'cover',
+    // top: 0,
+    // left: 0,
+    // width:'100%',
+    // height:'100%',
   },
   image: {
     flex: 1,
