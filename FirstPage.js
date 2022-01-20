@@ -170,7 +170,19 @@ export default class FirstPage extends Component<{}> {
   };
 
   GetFlatListItem = item => {
-    Alert.alert(item.id, item.title);
+     const {navigate} = this.props.navigation;
+    if (item.id === '0') {
+      Alert.alert('0');
+      navigate('SecondPage');
+      this.explosion && this.explosion.start();
+    } else if (item.id === '1') {
+      Alert.alert('1');
+      navigate('FamilyInfo');
+    } else if (item.id === '2') {
+      Alert.alert('3');
+    } else {
+      Alert.alert('4');
+    }
   };
 
   render_FlatList_footer = () => {
@@ -493,7 +505,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     width: '100%',
     height: '100%',
-     flex: 1,
+    flex: 1,
     position: 'absolute',
   },
 
