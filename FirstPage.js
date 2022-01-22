@@ -90,7 +90,7 @@ const FlatListItems = [
   },
   {
     id: '8',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರ',
+    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರO',
   },
   {
     id: '9',
@@ -237,20 +237,20 @@ export default class FirstPage extends Component<{}> {
     }
   };
 
-  render_FlatList_footer = () => {
-    var footer_View = (
-      <View style={styles.header_footer_style}>
-        {/* <Text style={styles.textStyle}> Footer </Text> */}
-      </View>
-    );
+  // render_FlatList_footer = () => {
+  //   var footer_View = (
+  //     <View style={styles.header_footer_style}>
+  //       {/* <Text style={styles.textStyle}> Footer </Text> */}
+  //     </View>
+  //   );
 
-    return footer_View;
-  };
+  //   return footer_View;
+  // };
 
   render_FlatList_header = () => {
     var header_View = (
       <View style={styles.header_footer_style}>
-        <Text style={styles.textStyle}>ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು </Text>
+        <Text style={styles.textStyle}>ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು</Text>
       </View>
     );
 
@@ -423,15 +423,15 @@ export default class FirstPage extends Component<{}> {
           // refreshing={refreshing}
           renderItem={({item}) => (
             <TouchableOpacity
-              key={item.id}
+              // key={item.id}
               style={styles.item}
               onPress={() => this.GetFlatListItem(item)}>
-              <Text style={styles.key}>{item.id}</Text>
+              {/* <Text style={styles.key}>{item.id}</Text> */}
               <Text style={styles.population}>{item.title}</Text>
             </TouchableOpacity>
           )}
           // ListHeaderComponent={this.render_FlatList_header}
-          ListFooterComponent={this.render_FlatList_footer}
+          // ListFooterComponent={this.render_FlatList_footer}
         />
         <FloatingAction
           actions={actions}
