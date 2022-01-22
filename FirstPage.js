@@ -192,34 +192,46 @@ export default class FirstPage extends Component<{}> {
       navigate('five');
     } else if (item.id === '6') {
       // Alert.alert('1');
-      navigate('one');
+      navigate('six');
     } else if (item.id === '7') {
       // Alert.alert('3');
-      navigate('two');
+      navigate('seven');
     } else if (item.id === '8') {
       // Alert.alert('3');
-      navigate('three');
+      navigate('eight');
     } else if (item.id === '9') {
       // Alert.alert('3');
-      navigate('four');
+      navigate('nine');
     } else if (item.id === '10') {
       // Alert.alert('3');
-      navigate('five');
+      navigate('ten');
     } else if (item.id === '11') {
       // Alert.alert('1');
-      navigate('one');
+      navigate('eleven');
     } else if (item.id === '12') {
       // Alert.alert('3');
-      navigate('two');
+      navigate('twelve');
     } else if (item.id === '13') {
       // Alert.alert('3');
-      navigate('three');
+      navigate('thirteen');
     } else if (item.id === '14') {
       // Alert.alert('3');
-      navigate('four');
+      navigate('fourteen');
     } else if (item.id === '15') {
       // Alert.alert('3');
-      navigate('five');
+      navigate('fifteen');
+    } else if (item.id === '16') {
+      // Alert.alert('3');
+      navigate('sixteen');
+    } else if (item.id === '17') {
+      // Alert.alert('3');
+      navigate('seventeen');
+    } else if (item.id === '18') {
+      // Alert.alert('3');
+      navigate('eighteen');
+    } else if (item.id === '19') {
+      // Alert.alert('3');
+      navigate('nineteen');
     } else {
       Alert.alert('none');
     }
