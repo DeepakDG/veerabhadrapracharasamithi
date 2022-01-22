@@ -170,18 +170,58 @@ export default class FirstPage extends Component<{}> {
   };
 
   GetFlatListItem = item => {
-     const {navigate} = this.props.navigation;
+    const {navigate} = this.props.navigation;
     if (item.id === '0') {
-      Alert.alert('0');
-      navigate('SecondPage');
-      this.explosion && this.explosion.start();
+      // Alert.alert('0');
+      navigate('zero');
+      // this.explosion && this.explosion.start();
     } else if (item.id === '1') {
-      Alert.alert('1');
-      navigate('FamilyInfo');
+      // Alert.alert('1');
+      navigate('one');
     } else if (item.id === '2') {
-      Alert.alert('3');
+      // Alert.alert('3');
+      navigate('two');
+    } else if (item.id === '3') {
+      // Alert.alert('3');
+      navigate('three');
+    } else if (item.id === '4') {
+      // Alert.alert('3');
+      navigate('four');
+    } else if (item.id === '5') {
+      // Alert.alert('3');
+      navigate('five');
+    } else if (item.id === '6') {
+      // Alert.alert('1');
+      navigate('one');
+    } else if (item.id === '7') {
+      // Alert.alert('3');
+      navigate('two');
+    } else if (item.id === '8') {
+      // Alert.alert('3');
+      navigate('three');
+    } else if (item.id === '9') {
+      // Alert.alert('3');
+      navigate('four');
+    } else if (item.id === '10') {
+      // Alert.alert('3');
+      navigate('five');
+    } else if (item.id === '11') {
+      // Alert.alert('1');
+      navigate('one');
+    } else if (item.id === '12') {
+      // Alert.alert('3');
+      navigate('two');
+    } else if (item.id === '13') {
+      // Alert.alert('3');
+      navigate('three');
+    } else if (item.id === '14') {
+      // Alert.alert('3');
+      navigate('four');
+    } else if (item.id === '15') {
+      // Alert.alert('3');
+      navigate('five');
     } else {
-      Alert.alert('4');
+      Alert.alert('none');
     }
   };
 
