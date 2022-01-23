@@ -119,7 +119,7 @@ export default class FamilyInfo extends Component<{}> {
   }
   static navigationOptions = {
     // header: null
-    title: "Family-Info",
+    title: "ಶ್ರೀ ಭದ್ರ ಕವಚಂ",
     headerTintColor: '#FFDF00',
     headerStyle: {
       backgroundColor: '#bb1471',

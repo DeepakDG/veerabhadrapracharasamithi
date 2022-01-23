@@ -119,7 +119,7 @@ export default class FamilyInfo extends Component<{}> {
   }
   static navigationOptions = {
     // header: null
-    title: "Family-Info",
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ",
     headerTintColor: '#FFDF00',
     headerStyle: {
       backgroundColor: '#bb1471',
