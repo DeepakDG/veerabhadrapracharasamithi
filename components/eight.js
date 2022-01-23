@@ -120,9 +120,9 @@ export default class FamilyInfo extends Component<{}> {
   static navigationOptions = {
     // header: null
     title: "ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರO",
-    headerTintColor: '#FFDF00',
+    headerTintColor: '#FFC93c',
     headerStyle: {
-      backgroundColor: '#bb1471',
+      backgroundColor: '#FF6F3C',
       borderBottomColor: '#FFDF00',
       borderBottomWidth: 3,
     },

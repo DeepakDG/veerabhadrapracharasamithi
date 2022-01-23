@@ -338,7 +338,7 @@ export default class FirstPage extends Component<{}> {
     // title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು',
     headerTintColor: '#FFDF00',
     headerStyle: {
-      backgroundColor: '#ff8000',
+      backgroundColor: '#ff9a3c',
       borderBottomColor: '#2F95D6',
       borderBottomWidth: 3,
     },
@@ -383,7 +383,7 @@ export default class FirstPage extends Component<{}> {
           style={{
             alignSelf: 'flex-start',
             padding: 4,
-            backgroundColor: '#ff8000',
+            backgroundColor: '#ff6f3c',
             width: '100%',
             height: 40,
           }}>
@@ -397,19 +397,19 @@ export default class FirstPage extends Component<{}> {
               </MenuTrigger>
               <MenuOptions>
                 <MenuOption onSelect={() => alert(`ರೇಟಿಂಗ್`)}>
-                  <Text style={{color: '#ff8000'}}>ರೇಟಿಂಗ್</Text>
+                  <Text style={{color: '#ff9a3c'}}>ರೇಟಿಂಗ್</Text>
                 </MenuOption>
                 <MenuOption
                   onSelect={() => {
                     this.onShare;
                   }}>
-                  <Text style={{color: '#ff8000'}}>ಶೇರ್ ಮಾಡಿ</Text>
+                  <Text style={{color: '#ff9a3c'}}>ಶೇರ್ ಮಾಡಿ</Text>
                 </MenuOption>
                 <MenuOption onSelect={() => alert(`ಸಂಪರ್ಕಿಸಿ`)}>
-                  <Text style={{color: '#ff8000'}}>ಸಂಪರ್ಕಿಸಿ</Text>
+                  <Text style={{color: '#ff9a3c'}}>ಸಂಪರ್ಕಿಸಿ</Text>
                 </MenuOption>
                 <MenuOption onSelect={() => alert(`ಅಪ್ಲಿಕೇಶನ್ ಬಗ್ಗೆ`)}>
-                  <Text style={{color: '#ff8000'}}>ಅಪ್ಲಿಕೇಶನ್ ಬಗ್ಗೆ</Text>
+                  <Text style={{color: '#ff9a3c'}}>ಅಪ್ಲಿಕೇಶನ್ ಬಗ್ಗೆ</Text>
                 </MenuOption>
               </MenuOptions>
             </Menu>
@@ -492,7 +492,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 8,
-    color: '#FFD700',
+    color: '#ff9a3c',
     fontFamily: 'BalooTamma2-Regular',
     justifyContent: 'center',
     alignItems: 'center',
@@ -512,13 +512,12 @@ const styles = StyleSheet.create({
   },
   //list item background styling like bgm
   item: {
-    backgroundColor: '#ff8000',
+    backgroundColor: '#ff9a3c',
     padding: 12,
     width: '90%',
     marginVertical: 8,
     fontSize: 28,
     marginHorizontal: 12,
-    color: '#ffffff',
     flexDirection: 'row',
     alignSelf: 'flex-start',
     // justifyContent: 'space-between',
@@ -578,7 +577,7 @@ const styles = StyleSheet.create({
   },
 
   SplashScreen_ChildView: {
-    backgroundColor: '#ff8000',
+    backgroundColor: '#ff9a3c',
     flex: 1,
     // flexDirection: 'row',
     // flexWrap: 'wrap',
@@ -618,14 +617,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 3,
   },
-  topHeadingInvite: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontStyle: 'italic',
-    textAlign: 'center',
-    fontFamily: 'Courgette.Regular',
-    color: '#ffffff',
-  },
   key: {
     fontSize: 10,
     color: 'blue',
@@ -638,7 +629,7 @@ const styles = StyleSheet.create({
   header_footer_style: {
     width: '100%',
     height: 44,
-    backgroundColor: '#ff8000',
+    backgroundColor: '#ff9a3c',
     alignItems: 'center',
     justifyContent: 'center',
   },

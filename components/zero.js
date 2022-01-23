@@ -120,9 +120,9 @@ export default class FamilyInfo extends Component<{}> {
   static navigationOptions = {
     // header: null
     title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ",
-    headerTintColor: '#FFDF00',
+    headerTintColor: '#FFC93c',
     headerStyle: {
-      backgroundColor: '#bb1471',
+      backgroundColor: '#FF6F3C',
       borderBottomColor: '#FFDF00',
       borderBottomWidth: 3,
     },
