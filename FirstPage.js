@@ -447,10 +447,10 @@ export default class FirstPage extends Component<{}> {
           actions={actions}
           onPressItem={name => {
             if (name === 'btn_location') {
-              navigate('SecondPage');
-              this.explosion && this.explosion.start();
+              // navigate('SecondPage');
+              // this.explosion && this.explosion.start();
             } else if (name === 'btn_familyInfo') {
-              navigate('FamilyInfo');
+              // navigate('FamilyInfo');
             } else if (name === 'btn_muhurtha') {
             }
             console.log(`selected button: ${name}`);

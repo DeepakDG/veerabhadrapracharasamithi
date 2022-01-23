@@ -118,7 +118,7 @@ export default class SecondPage extends Component<{}> {
   }
   static navigationOptions = {
     // header: null
-    title: "TIMINGS & VENUE",
+    title: "Notifications",
     headerTintColor: "#FFDF00",
     headerStyle: {
       backgroundColor: "#bb1471",
