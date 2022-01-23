@@ -143,6 +143,28 @@ const FlatListItems = [
   // refreshing: false,
 ];
 
+shareApp = () => {
+  let text =
+    "Want more buzz around your photos on Insta, Facebook, Twitter, Whatsapp posts?\n\nDownload VeerabhadraSwamy Mantragalu App ";
+  if (Platform.OS === 'android') text = text.concat('https://applink');
+  else text = text.concat('http://applink');
+
+  Share.share(
+    {
+      subject: 'Download Shri Veerabhadra Swamy Mantragalu App Now',
+      title: 'Download Shri Veerabhadra Swamy Mantragalu App Now',
+      message: text,
+      url: 'app://applink',
+    },
+    {
+      // Android only:
+      dialogTitle: 'Share VeerabhadraSwamy Mantragalu App',
+      // iOS only:
+      excludedActivityTypes: [],
+    },
+  );
+};
+
 export default class FirstPage extends Component<{}> {
   constructor() {
     super();
@@ -297,16 +319,6 @@ export default class FirstPage extends Component<{}> {
     }).start();
   }
 
-  onShare = async () => {
-    try {
-      const result = await Share.share({
-        message: 'Now Available on Play Store. Download now',
-      });
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
   _spring() {
     this.setState({backClickCount: 1}, () => {
       Animated.sequence([
@@ -400,9 +412,7 @@ export default class FirstPage extends Component<{}> {
                   <Text style={{color: '#ff9a3c'}}>ರೇಟಿಂಗ್</Text>
                 </MenuOption>
                 <MenuOption
-                  onSelect={() => {
-                    this.onShare;
-                  }}>
+                  onSelect={() => shareApp()}>
                   <Text style={{color: '#ff9a3c'}}>ಶೇರ್ ಮಾಡಿ</Text>
                 </MenuOption>
                 <MenuOption onSelect={() => alert(`ಸಂಪರ್ಕಿಸಿ`)}>
