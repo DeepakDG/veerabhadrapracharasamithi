@@ -1,673 +1,187 @@
-import React, {Component} from 'react';
+// React Native App Intro Slider using AppIntroSlider
+// https://aboutreact.com/react-native-app-intro-slider/
+// Intro slider with a button in the center
+
+// import React in our code
+import React, {useState} from 'react';
+
+// import all the components we are going to use
 import {
-  Platform,
+  SafeAreaView,
   StyleSheet,
   View,
   Text,
   Image,
-  Alert,
-  ImageBackground,
   Button,
-  ScrollView,
-  BackHandler,
-  Dimensions,
-  Animated,
-  TouchableOpacity,
-  SafeAreaView,
-  FlatList,
-  Share,
 } from 'react-native';
-import ConfettiCannon from 'react-native-confetti-cannon';
-import {Picker, Icon} from 'native-base';
-import PropTypes from 'prop-types';
-import {FloatingAction} from 'react-native-floating-action';
-import Printer from './Printer';
-import Ticket from './Ticket';
-import {
-  Menu,
-  MenuOptions,
-  MenuOption,
-  MenuTrigger,
-  MenuProvider,
-} from 'react-native-popup-menu';
 
-let {width, height} = Dimensions.get('window');
-const actions = [
-  {
-    text: 'ದೇವಾಲಯಗಳು',
-    icon: require('./images/temples.png'),
-    name: 'btn_familyInfo',
-    position: 1,
-  },
-  {
-    text: 'ಅಧಿಸೂಚನೆಗಳು',
-    icon: require('./images/bell.png'),
-    name: 'btn_location',
-    position: 3,
-  },
-  // {
-  //   text: "Video",
-  //   icon: require("./images/location.png"),
-  //   name: "bt_videocam",
-  //   position: 4,
-  // },
-];
+//import AppIntroSlider to use it
+import AppIntroSlider from 'react-native-app-intro-slider';
 
-class TypingText extends Component<{}> {}
+const FirstPage = () => {
+  const [showRealApp, setShowRealApp] = useState(false);
 
-const FlatListItems = [
-  {
-    id: '0',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ',
-  },
-  {
-    id: '1',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಕವಚಂ',
-  },
-  {
-    id: '2',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ದಂಡಕಂ',
-  },
-  {
-    id: '3',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ತಾರಾವಳಿ',
-  },
-  {
-    id: '4',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರಾಷ್ಟಕಂ',
-  },
-  {
-    id: '5',
-    title: 'ಶ್ರೀ ಭದ್ರ ಕವಚಂ',
-  },
-  {
-    id: '6',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮಸ್ತೋತ್ರ',
-  },
-  {
-    id: '7',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ',
-  },
-  {
-    id: '8',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರO',
-  },
-  {
-    id: '9',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ',
-  },
-  {
-    id: '10',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ವಡಪುಗಳು',
-  },
-  {
-    id: '11',
-    title: 'ಗುಗ್ಗುಳದ ಬಗ್ಗೆ ಮಾಹಿತಿ',
-  },
-  {
-    id: '12',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ',
-  },
-  {
-    id: '13',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಆಚರಣೆಗಳು',
-  },
-  {
-    id: '14',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಾರ್ಥನೆ',
-  },
-  {
-    id: '15',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ ಶ್ಲೋಕ',
-  },
-  {
-    id: '16',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ',
-  },
-  {
-    id: '17',
-    title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ',
-  },
-  {
-    id: '18',
-    title: 'ದ್ವಾತ್ರಿಂಶದ್ಭುಜ ಶ್ರೀ ವೀರಭದ್ರ ಧ್ಯಾನಂ',
-  },
-  {
-    id: '19',
-    title: 'ಶ್ರೀ ಶರಭ ಹೃದಯ ಸ್ತೋತ್ರ',
-  },
-  {
-    id: '20',
-    title: 'ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು',
-  },
-  // refreshing: false,
-];
+  const onDone = () => {
+    setShowRealApp(true);
+  };
+  const onSkip = () => {
+    setShowRealApp(true);
+  };
 
-shareApp = () => {
-  let text =
-    "Want more buzz around your photos on Insta, Facebook, Twitter, Whatsapp posts?\n\nDownload VeerabhadraSwamy Mantragalu App ";
-  if (Platform.OS === 'android') text = text.concat('https://applink');
-  else text = text.concat('http://applink');
+  const RenderItem = ({item}) => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: item.backgroundColor,
+          alignItems: 'center',
+          justifyContent: 'space-around',
+          paddingBottom: 100,
+        }}>
+        <Text style={styles.introTitleStyle}>
+          {item.title}
+        </Text>
+        <Image
+          style={styles.introImageStyle}
+          source={item.image} />
+        <Text style={styles.introTextStyle}>
+          {item.text}
+        </Text>
+      </View>
+    );
+  };
 
-  Share.share(
-    {
-      subject: 'Download Shri Veerabhadra Swamy Mantragalu App Now',
-      title: 'Download Shri Veerabhadra Swamy Mantragalu App Now',
-      message: text,
-      url: 'app://applink',
-    },
-    {
-      // Android only:
-      dialogTitle: 'Share VeerabhadraSwamy Mantragalu App',
-      // iOS only:
-      excludedActivityTypes: [],
-    },
+  return (
+    <>
+      {showRealApp ? (
+        <SafeAreaView style={styles.container}>
+          <View style={styles.container}>
+            <Text style={styles.titleStyle}>
+              React Native App Intro Slider using AppIntroSlider
+            </Text>
+            <Text style={styles.paragraphStyle}>
+              This will be your screen when you click Skip
+              from any slide or Done button at last
+            </Text>
+            <Button
+              title="Show Intro Slider again"
+              onPress={() => setShowRealApp(false)}
+            />
+          </View>
+        </SafeAreaView>
+      ) : (
+        <AppIntroSlider
+          data={slides}
+          renderItem={RenderItem}
+          onDone={onDone}
+          showPrevButton={true}
+          onSkip={onSkip}
+          bottomButton
+        />
+      )}
+    </>
   );
 };
 
-export default class FirstPage extends Component<{}> {
-  constructor() {
-    super();
-    this.springValue = new Animated.Value(100);
-    this.state = {
-      isVisible: true,
-      ticketIndex: 1,
-      startValue: new Animated.Value(0),
-      endValue: 1,
-      duration: 10000,
-      backClickCount: 0,
-    };
-  }
-
-  FlatListItemSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 4,
-          width: '100%',
-          backgroundColor: '#ffffff',
-        }}
-      />
-    );
-  };
-
-  GetFlatListItem = item => {
-    const {navigate} = this.props.navigation;
-    if (item.id === '0') {
-      // Alert.alert('0');
-      navigate('zero');
-      // this.explosion && this.explosion.start();
-    } else if (item.id === '1') {
-      // Alert.alert('1');
-      navigate('one');
-    } else if (item.id === '2') {
-      // Alert.alert('3');
-      navigate('two');
-    } else if (item.id === '3') {
-      // Alert.alert('3');
-      navigate('three');
-    } else if (item.id === '4') {
-      // Alert.alert('3');
-      navigate('four');
-    } else if (item.id === '5') {
-      // Alert.alert('3');
-      navigate('five');
-    } else if (item.id === '6') {
-      // Alert.alert('1');
-      navigate('six');
-    } else if (item.id === '7') {
-      // Alert.alert('3');
-      navigate('seven');
-    } else if (item.id === '8') {
-      // Alert.alert('3');
-      navigate('eight');
-    } else if (item.id === '9') {
-      // Alert.alert('3');
-      navigate('nine');
-    } else if (item.id === '10') {
-      // Alert.alert('3');
-      navigate('ten');
-    } else if (item.id === '11') {
-      // Alert.alert('1');
-      navigate('eleven');
-    } else if (item.id === '12') {
-      // Alert.alert('3');
-      navigate('twelve');
-    } else if (item.id === '13') {
-      // Alert.alert('3');
-      navigate('thirteen');
-    } else if (item.id === '14') {
-      // Alert.alert('3');
-      navigate('fourteen');
-    } else if (item.id === '15') {
-      // Alert.alert('3');
-      navigate('fifteen');
-    } else if (item.id === '16') {
-      // Alert.alert('3');
-      navigate('sixteen');
-    } else if (item.id === '17') {
-      // Alert.alert('3');
-      navigate('seventeen');
-    } else if (item.id === '18') {
-      // Alert.alert('3');
-      navigate('eighteen');
-    } else if (item.id === '19') {
-      // Alert.alert('3');
-      navigate('nineteen');
-    } else {
-      Alert.alert('none');
-    }
-  };
-
-  // render_FlatList_footer = () => {
-  //   var footer_View = (
-  //     <View style={styles.header_footer_style}>
-  //       {/* <Text style={styles.textStyle}> Footer </Text> */}
-  //     </View>
-  //   );
-
-  //   return footer_View;
-  // };
-
-  render_FlatList_header = () => {
-    var header_View = (
-      <View style={styles.header_footer_style}>
-        <Text style={styles.textStyle}>ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು</Text>
-      </View>
-    );
-
-    return header_View;
-  };
-
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: '100%',
-          backgroundColor: '#ffffff',
-        }}
-      />
-    );
-  };
-
-  Hide_Splash_Screen = () => {
-    this.setState({
-      isVisible: false,
-    });
-  };
-
-  componentWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
-  }
-
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
-  }
-
-  componentDidMount() {
-    var that = this;
-
-    setTimeout(function () {
-      that.Hide_Splash_Screen();
-    }, 10000);
-
-    Animated.timing(this.state.startValue, {
-      toValue: this.state.endValue,
-      duration: this.state.duration,
-      useNativeDriver: true,
-    }).start();
-  }
-
-  _spring() {
-    this.setState({backClickCount: 1}, () => {
-      Animated.sequence([
-        Animated.spring(this.springValue, {
-          toValue: -0.0 * height,
-          friction: 5,
-          duration: 300,
-          useNativeDriver: true,
-        }),
-        Animated.timing(this.springValue, {
-          toValue: 100,
-          duration: 300,
-          useNativeDriver: true,
-        }),
-      ]).start(() => {
-        this.setState({backClickCount: 0});
-      });
-    });
-  }
-
-  handleBackButton = () => {
-    this.state.backClickCount == 1 ? BackHandler.exitApp() : this._spring();
-
-    return true;
-  };
-
-  static navigationOptions = {
-    header: null,
-    // title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು',
-    headerTintColor: '#FFDF00',
-    headerStyle: {
-      backgroundColor: '#ff9a3c',
-      borderBottomColor: '#2F95D6',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 18,
-    },
-    // title: 'Second Page',
-    //Sets Header text of Status Bar
-  };
-
-  render() {
-    const ticketHeight = 280;
-    const {navigate} = this.props.navigation;
-
-    let Splash_Screen = (
-      <View style={styles.SplashScreen_RootView}>
-        <View style={styles.SplashScreen_ChildView}>
-          <ImageBackground
-            source={require('./images/veerabhadra_splash.jpg')}
-            style={styles.splashContent}>
-            <View style={styles.bottombanner}>
-              {/* <View> */}
-              <Animated.View style={[{opacity: this.state.startValue}]}>
-                <ImageBackground
-                  style={styles.theImage}
-                  source={require('./games/poster_bg_new.jpg')}>
-                  <Text style={styles.topHeadingInvite}>
-                    ಶ್ರೀ ವೀರಭದ್ರಸ್ವಾಮಿ ಮಂತ್ರಗಳು
-                  </Text>
-                </ImageBackground>
-                {/* </View> */}
-              </Animated.View>
-              {/* <ConfettiCannon count={200} origin={{x: -10, y: 0}} /> */}
-            </View>
-          </ImageBackground>
-        </View>
-      </View>
-    );
-    return (
-      <View style={styles.MainContainer}>
-        <View
-          style={{
-            alignSelf: 'flex-start',
-            padding: 4,
-            backgroundColor: '#ff6f3c',
-            width: '100%',
-            height: 40,
-          }}>
-          <Text style={styles.title}>ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸ್ವಾಮಿ ಮಂತ್ರಗಳು</Text>
-        </View>
-        <View style={styles.buttonstyle}>
-          <MenuProvider>
-            <Menu>
-              <MenuTrigger style={styles.menutriggerstyle}>
-                <Image source={require('./images/more.png')}></Image>
-              </MenuTrigger>
-              <MenuOptions>
-                <MenuOption onSelect={() => alert(`ರೇಟಿಂಗ್`)}>
-                  <Text style={{color: '#ff9a3c'}}>ರೇಟಿಂಗ್</Text>
-                </MenuOption>
-                <MenuOption
-                  onSelect={() => shareApp()}>
-                  <Text style={{color: '#ff9a3c'}}>ಶೇರ್ ಮಾಡಿ</Text>
-                </MenuOption>
-                <MenuOption onSelect={() => alert(`ಸಂಪರ್ಕಿಸಿ`)}>
-                  <Text style={{color: '#ff9a3c'}}>ಸಂಪರ್ಕಿಸಿ</Text>
-                </MenuOption>
-                <MenuOption onSelect={() => alert(`ಅಪ್ಲಿಕೇಶನ್ ಬಗ್ಗೆ`)}>
-                  <Text style={{color: '#ff9a3c'}}>ಅಪ್ಲಿಕೇಶನ್ ಬಗ್ಗೆ</Text>
-                </MenuOption>
-              </MenuOptions>
-            </Menu>
-          </MenuProvider>
-        </View>
-        <FlatList
-          data={FlatListItems}
-          // data={this.state.FlatListItems}
-          ItemSeparatorComponent={this.FlatListItemSeparator}
-          // onRefresh={this.onRefresh}
-          // refreshing={refreshing}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              // key={item.id}
-              style={styles.item}
-              onPress={() => this.GetFlatListItem(item)}>
-              {/* <Text style={styles.key}>{item.id}</Text> */}
-              <Text style={styles.population}>{item.title}</Text>
-            </TouchableOpacity>
-          )}
-          // ListHeaderComponent={this.render_FlatList_header}
-          // ListFooterComponent={this.render_FlatList_footer}
-        />
-        <FloatingAction
-          actions={actions}
-          onPressItem={name => {
-            if (name === 'btn_location') {
-              // navigate('SecondPage');
-              // this.explosion && this.explosion.start();
-            } else if (name === 'btn_familyInfo') {
-              // navigate('FamilyInfo');
-            } else if (name === 'btn_muhurtha') {
-            }
-            console.log(`selected button: ${name}`);
-          }}
-        />
-        {this.state.isVisible === true ? Splash_Screen : null}
-        <Animated.View
-          style={[
-            styles.animatedView,
-            {transform: [{translateY: this.springValue}]},
-          ]}>
-          <Text style={styles.exitTitleText}>
-            ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ನಿರ್ಗಮಿಸಲು ಮತ್ತೆ ಹಿಂದಕ್ಕೆ ಒತ್ತಿರಿ
-          </Text>
-
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => BackHandler.exitApp()}>
-            <Text style={styles.exitText}>ನಿರ್ಗಮಿಸಿ</Text>
-          </TouchableOpacity>
-        </Animated.View>
-      </View>
-    );
-  }
-}
+export default FirstPage;
 
 const styles = StyleSheet.create({
-  MainContainer: {
-    flex: 1,
-    top: 0,
-    left: 0,
-    paddingTop: Platform.OS === 'ios' ? 20 : 0,
-  },
   container: {
     flex: 1,
-    marginTop: 40,
-    backgroundColor: '#fe724c',
-  },
-  bottombanner: {
-    height: 40,
-    width: '100%',
-    position: 'absolute',
-    bottom: 1,
-  },
-  topHeadingInvite: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 8,
-    color: '#ff9a3c',
-    fontFamily: 'BalooTamma2-Regular',
-    justifyContent: 'center',
+    backgroundColor: '#fff',
     alignItems: 'center',
-  },
-  splashContent: {
-    width: '100%',
-    height: '100%',
-    flex: 1,
-    // alignItems: 'flex-end',
-    // alignSelf: 'flex-end',
-  },
-  theImage: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    textAlign: 'center',
-  },
-  //list item background styling like bgm
-  item: {
-    backgroundColor: '#ff9a3c',
-    padding: 12,
-    width: '90%',
-    marginVertical: 8,
-    fontSize: 28,
-    marginHorizontal: 12,
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
-    // justifyContent: 'space-between',
-  },
-  topbutton: {
-    position: 'absolute',
-    right: 5,
-    top: 5,
-    width: '10%',
-    height: 150,
-  },
-  menutriggerstyle: {
-    // marginLeft: 90,
-    alignSelf: 'flex-end',
-  },
-  buttonstyle: {
-    // position: 'absolute',
-    alignSelf: 'flex-end',
-    // right: 5,
-    top: 5,
-    position: 'absolute',
-    // top: Constants.statusBarHeight,
-    zIndex: 10,
-    backgroundColor: '#00000000',
-    elevation: 10,
-    width: '40%',
-    height: 120,
-  },
-  title: {
-    fontSize: 16,
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
-
-  SplashScreen_RootView: {
-    // justifyContent: 'center',
-    width: '100%',
-    height: '100%',
-    flex: 1,
-    position: 'absolute',
-  },
-
-  fontFamilyDeepak: {
-    fontFamily: 'Courgette.Regular',
-    color: '#ffffff',
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginLeft: 25,
-  },
-
-  fontFamilySumalatha: {
-    fontFamily: 'Courgette.Regular',
-    color: '#ffffff',
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginLeft: 15,
-  },
-
-  SplashScreen_ChildView: {
-    backgroundColor: '#ff9a3c',
-    flex: 1,
-    // flexDirection: 'row',
-    // flexWrap: 'wrap',
-    // alignItems: 'flex-start',
-    // resizeMode: 'cover',
-    // top: 0,
-    // left: 0,
-    // width:'100%',
-    // height:'100%',
-  },
-  image: {
-    flex: 1,
-  },
-  tinyKnot: {
-    width: 250,
-    height: 150,
-    marginBottom: 85,
-  },
-  animatedView: {
-    width,
-    backgroundColor: '#0a5386',
-    elevation: 2,
-    position: 'absolute',
-    bottom: 0,
     padding: 10,
     justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
   },
-  exitTitleText: {
+  titleStyle: {
+    padding: 10,
     textAlign: 'center',
-    color: '#ffffff',
-    marginRight: 10,
-  },
-  exitText: {
-    color: '#e5933a',
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-  },
-  key: {
-    fontSize: 10,
-    color: 'blue',
-  },
-  population: {
-    color: '#ffffff',
     fontSize: 18,
+    fontWeight: 'bold',
   },
-
-  header_footer_style: {
-    width: '100%',
-    height: 44,
-    backgroundColor: '#ff9a3c',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  textStyle: {
+  paragraphStyle: {
+    padding: 20,
     textAlign: 'center',
-    color: '#ffffff',
+    fontSize: 16,
+  },
+  introImageStyle: {
+    width: 200,
+    height: 200,
+  },
+  introTextStyle: {
     fontSize: 18,
+    color: 'white',
+    textAlign: 'center',
+    paddingVertical: 30,
+  },
+  introTitleStyle: {
+    fontSize: 25,
+    color: 'white',
+    textAlign: 'center',
+    marginBottom: 16,
+    fontWeight: 'bold',
   },
 });
 
-TypingText.propTypes = {
-  text: PropTypes.string,
-  color: PropTypes.string,
-  marginTop: PropTypes.number,
-  marginHorizontal: PropTypes.number,
-  textSize: PropTypes.number,
-  fontFamily: PropTypes.fontFamily,
-  typingAnimationDuration: PropTypes.number,
-  blinkingCursorAnimationDuration: PropTypes.number,
-};
-
-TypingText.defaultProps = {
-  color: 'rgb(255,223,0)',
-  marginTop: 100,
-  marginHorizontal: 30,
-  textSize: 22,
-  fontFamily: 'Courgette.Regular',
-  typingAnimationDuration: 50,
-  blinkingCursorAnimationDuration: 650,
-};
+const slides = [
+  {
+    key: 's1',
+    text: 'Best Recharge offers',
+    title: 'Mobile Recharge',
+    image: {
+      uri:
+        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_mobile_recharge.png',
+    },
+    backgroundColor: '#20d2bb',
+  },
+  {
+    key: 's2',
+    title: 'Flight Booking',
+    text: 'Upto 25% off on Domestic Flights',
+    image: {
+      uri:
+        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_flight_ticket_booking.png',
+    },
+    backgroundColor: '#febe29',
+  },
+  {
+    key: 's3',
+    title: 'Great Offers',
+    text: 'Enjoy Great offers on our all services',
+    image: {
+      uri:
+        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_discount.png',
+    },
+    backgroundColor: '#22bcb5',
+  },
+  {
+    key: 's4',
+    title: 'Best Deals',
+    text: ' Best Deals on all our services',
+    image: {
+      uri:
+        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_best_deals.png',
+    },
+    backgroundColor: '#3395ff',
+  },
+  {
+    key: 's5',
+    title: 'Bus Booking',
+    text: 'Enjoy Travelling on Bus with flat 100% off',
+    image: {
+      uri:
+        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_bus_ticket_booking.png',
+    },
+    backgroundColor: '#f6437b',
+  },
+  {
+    key: 's6',
+    title: 'Train Booking',
+    text: ' 10% off on first Train booking',
+    image: {
+      uri:
+        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_train_ticket_booking.png',
+    },
+    backgroundColor: '#febe29',
+  },
+];
