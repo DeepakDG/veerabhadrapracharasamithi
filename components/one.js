@@ -56,11 +56,10 @@ const one = () => {
           backgroundColor: item.backgroundColor,
           alignItems: 'center',
           justifyContent: 'space-around',
-          paddingBottom: 100,
+          paddingBottom: 10,
         }}>
         <ScrollView>
         <Text style={styles.introTitleStyle}>{item.title}</Text>
-        <Image style={styles.introImageStyle} source={item.image} />
         <Text style={styles.introTextStyle}>{item.text}</Text>
         </ScrollView>
       </View>
@@ -94,7 +93,7 @@ const one = () => {
           onSkip={onSkip}
           renderNextButton={RenderNextButton}
           renderPrevButton={RenderPrevButton}
-          bottomButton
+          // bottomButton
         />
       )}
     </>
@@ -107,40 +106,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     padding: 10,
-    justifyContent: 'center',
   },
   buttonCircle: {
     width: 50,
     height: 50,
   },
   titleStyle: {
-    padding: 10,
-    textAlign: 'center',
+    padding: 4,
     fontSize: 18,
     fontWeight: 'bold',
   },
   paragraphStyle: {
-    padding: 20,
-    textAlign: 'center',
+    padding: 4,
     fontSize: 16,
-  },
-  introImageStyle: {
-    width: 200,
-    height: 200,
   },
   introTextStyle: {
     fontSize: 18,
     color: 'white',
-    textAlign: 'center',
-    paddingVertical: 30,
   },
   introTitleStyle: {
     fontSize: 25,
     color: 'white',
-    textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: 4,
     fontWeight: 'bold',
   },
 });
