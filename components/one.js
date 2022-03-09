@@ -1,28 +1,108 @@
-// React Native App Intro Slider using AppIntroSlider
-// https://aboutreact.com/react-native-app-intro-slider/
-// Intro slider with a button in the center
-
-// import React in our code
-import React, {useState} from 'react';
-import Icon from 'react-native-ionicons';
-// import all the components we are going to use
+import React, {Component, useState} from 'react';
 import {
-  SafeAreaView,
+  Platform,
   StyleSheet,
-  ScrollView,
   View,
   Text,
   Image,
+  Alert,
   ImageBackground,
+  Animated,
   Button,
+  ScrollView,
 } from 'react-native';
-
-//import AppIntroSlider to use it
+import PropTypes from 'prop-types';
+import PagerView from 'react-native-pager-view';
 import AppIntroSlider from 'react-native-app-intro-slider';
+
+class TypingText extends Component<{}> {
+  constructor() {
+    super();
+
+    this.index = 0;
+
+    this.typing_timer = -1;
+
+    this.blinking_cursor_timer = -1;
+
+    this.state = {text: '', blinking_cursor_color: 'transparent'};
+  }
+
+  componentDidMount() {
+    this.typingAnimation();
+    this.blinkingCursorAnimation();
+  }
+
+  componentWillUnmout() {
+    clearTimeout(this.typing_timer);
+
+    this.typing_timer = -1;
+
+    clearInterval(this.blinking_cursor_timer);
+
+    this.blinking_cursor_timer = -1;
+  }
+
+  typingAnimation = () => {
+    clearTimeout(this.typing_timer);
+
+    this.typing_timer = -1;
+
+    if (this.index < this.props.text.length) {
+      if (this.refs.animatedText) {
+        this.setState(
+          {text: this.state.text + this.props.text.charAt(this.index)},
+          () => {
+            this.index++;
+
+            this.typing_timer = setTimeout(() => {
+              this.typingAnimation();
+            }, this.props.typingAnimationDuration);
+          },
+        );
+      }
+    }
+  };
+
+  blinkingCursorAnimation = () => {
+    this.blinking_cursor_timer = setInterval(() => {
+      if (this.refs.animatedText) {
+        if (this.state.blinking_cursor_color == 'transparent')
+          this.setState({blinking_cursor_color: this.props.color});
+        else this.setState({blinking_cursor_color: 'transparent'});
+      }
+    }, this.props.blinkingCursorAnimationDuration);
+  };
+
+  render() {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        }}>
+        <Text
+          ref="animatedText"
+          style={{
+            color: this.props.color,
+            fontSize: this.props.textSize,
+            textAlign: 'center',
+            marginTop: this.props.marginTop,
+            marginHorizontal: this.props.marginHorizontal,
+            fontFamily: this.props.fontFamily,
+          }}>
+          {this.state.text}
+
+          <Text style={{color: this.state.blinking_cursor_color}}>|</Text>
+        </Text>
+      </View>
+    );
+  }
+}
 
 const one = () => {
   const [showRealApp, setShowRealApp] = useState(false);
-  
 
   const RenderNextButton = () => {
     return (
@@ -35,10 +115,13 @@ const one = () => {
   };
 
   const RenderPrevButton = () => {
-    return <View style={styles.buttonCircle}>
-    <Image
+    return (
+      <View style={styles.buttonCircle}>
+        <Image
           source={require('../images/back.png')}
-          style={styles.backgroungImage}></Image></View>;
+          style={styles.backgroungImage}></Image>
+      </View>
+    );
   };
 
   const onDone = () => {
@@ -55,12 +138,14 @@ const one = () => {
           flex: 1,
           backgroundColor: item.backgroundColor,
           alignItems: 'center',
-          justifyContent: 'space-around',
-          paddingBottom: 10,
+          padding: 10,
+          justifyContent: 'center',
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}>
         <ScrollView>
-        <Text style={styles.introTitleStyle}>{item.title}</Text>
-        <Text style={styles.introTextStyle}>{item.text}</Text>
+          <Text style={styles.introTitleStyle}>{item.title}</Text>
+          <Text style={styles.introTextStyle}>{item.text}</Text>
         </ScrollView>
       </View>
     );
@@ -100,9 +185,32 @@ const one = () => {
   );
 };
 
+one.navigationOptions = screenProps => ({
+  // header: null
+  title: 'ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ',
+  headerTintColor: '#FFC93c',
+  headerStyle: {
+    backgroundColor: '#FF6F3C',
+    borderBottomColor: '#FFDF00',
+    borderBottomWidth: 3,
+  },
+  headerTitleStyle: {
+    fontSize: 18,
+  },
+  //Sets Header text of Status Bar
+});
+
 export default one;
 
 const styles = StyleSheet.create({
+  MainContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    paddingTop: Platform.OS === 'ios' ? 20 : 0,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -120,18 +228,62 @@ const styles = StyleSheet.create({
   paragraphStyle: {
     padding: 4,
     fontSize: 16,
+    textAlign: 'center',
   },
   introTextStyle: {
     fontSize: 18,
+    textAlign: 'center',
     color: 'white',
   },
   introTitleStyle: {
     fontSize: 25,
+    textAlign: 'center',
     color: 'white',
     marginBottom: 4,
     fontWeight: 'bold',
   },
+  image: {
+    flex: 1,
+  },
+  viewPager: {
+    flex: 1,
+    marginTop: 0,
+    backgroundColor: '#fe724c',
+    padding: 15,
+  },
+  page: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textalign: {
+    textAlign: 'justify',
+    fontSize: 20,
+    color: '#ffffff',
+    padding: 15,
+  },
 });
+
+TypingText.propTypes = {
+  text: PropTypes.string,
+  color: PropTypes.string,
+  marginTop: PropTypes.number,
+  marginHorizontal: PropTypes.number,
+  textSize: PropTypes.number,
+  fontFamily: PropTypes.fontFamily,
+  typingAnimationDuration: PropTypes.number,
+  blinkingCursorAnimationDuration: PropTypes.number,
+};
+
+TypingText.defaultProps = {
+  text: 'Default Typing Animated Text.',
+  color: 'rgb(255,223,0)',
+  marginTop: 30,
+  marginHorizontal: 30,
+  textSize: 18,
+  fontFamily: 'Courgette.Regular',
+  typingAnimationDuration: 5,
+  blinkingCursorAnimationDuration: 450,
+};
 
 const slides = [
   {
